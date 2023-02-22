@@ -23,9 +23,15 @@ let target;
 
 app.use(express.static('dist'));
 
+app.get('/', (req, res) => {
+  res.send('Hey this is my API running 🥳')
+})
+
 app.get('/api/:Id', async(req, res) => {
  target = claudio(req.params.Id)
   req.pipe(request.get(await target)).pipe(res);
 });
 
 app.listen(PORT);
+
+module.exports = app;
