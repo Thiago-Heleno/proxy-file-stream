@@ -22,7 +22,9 @@ async function claudio(id){
 
 let target;
 
-app.use(cors())
+app.use(cors({
+    origin: ['http://localhost/', 'https://sveltekit-animeapp.vercel.app/']
+}))
 app.use(express.static('dist'));
 
 app.get('/', (req, res) => {
