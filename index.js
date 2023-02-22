@@ -33,5 +33,3 @@ app.get('/api/:Id', async(req, res) => {
 });
 
 app.listen(PORT);
-
-module.exports = app;
