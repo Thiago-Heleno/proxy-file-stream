@@ -9,9 +9,11 @@ const PORT = process.env.PORT || 4000;
 
 
 async function claudio(id){
-		const dd = await fetch(`https://fembed9hd.com/api/source/${id}`, {method: "POST", referrer: `https://fembed9hd.com/v/${id}`})
-		const cc = await fetch((await dd.json()).data[2].file, {method: "GET", referrer: `https://fembed9hd.com/v/${id}`})
-		
+		const dd = await fetch(`https://fembed9hd.com/api/source/${id}`, {method: "POST", referrer: `https://fembed9hd.com/v/${id}`}).catch((error)=>console.log(error))
+		const kk = await dd.json()
+		if(kk){
+			const cc = await fetch(kk.data[2].file, {method: "GET", referrer: `https://fembed9hd.com/v/${id}`}).catch((error)=>console.log(error))
+		}
 		const jj = await cc.url
 		if(jj){
 			return jj
