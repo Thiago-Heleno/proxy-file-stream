@@ -1,5 +1,6 @@
 var fetch = require('node-fetch')
 var express = require('express')
+var cors = require('cors')
 var request = require('request')
 const app = express();
 
@@ -21,6 +22,7 @@ async function claudio(id){
 
 let target;
 
+app.use(cors())
 app.use(express.static('dist'));
 
 app.get('/', (req, res) => {
